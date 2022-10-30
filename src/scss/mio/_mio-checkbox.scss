@@ -1,0 +1,21 @@
+@use "../abstract/mixins" as m;
+@use "../abstract/variables" as v;
+
+.mio-checkbox-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.mio-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: v.$blue-900;
+    cursor: pointer;
+
+    button svg {
+        color: v.$blue-900;
+    }
+}

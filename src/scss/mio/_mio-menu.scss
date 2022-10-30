@@ -1,0 +1,78 @@
+@use "../abstract/mixins" as m;
+@use "../abstract/variables" as v;
+
+.mio-menu {
+    z-index: 400;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &.in .content {
+        animation: in 0.2s ease-out;
+    }
+
+    &.out .content {
+        animation: out 0.2s ease-in;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        min-width: 280px;
+        padding: 8px 0;
+        background-color: v.$white;
+        border-radius: 8px;
+        box-shadow: 0px 1px 3px 0px rgb(0 0 0 / 15%),
+            0px 1px 6px 0px rgb(0 0 0 / 15%);
+
+        @include m.desktop {
+            min-width: 300px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            height: 48px;
+            padding: 0 16px;
+            color: v.$blue-900;
+            font-weight: 400;
+            cursor: pointer;
+
+            &:hover {
+                background-color: v.$gray-50;
+            }
+
+            &:active {
+                background-color: v.$gray-100;
+            }
+        }
+    }
+}
+
+@keyframes in {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes out {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+}

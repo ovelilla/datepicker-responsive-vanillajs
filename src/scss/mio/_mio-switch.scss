@@ -1,0 +1,86 @@
+@use "../abstract/variables" as v;
+@use "../abstract/mixins" as m;
+
+.mio-switch-input {
+    visibility: hidden;
+    appearance: none;
+    height: 0;
+    width: 0;
+
+    &:checked + .mio-switch-label {
+        background: v.$blue-900;
+    }
+
+    &:checked + .mio-switch-label {
+        color: v.$blue-900;
+        &.small:after {
+            transform: translateX(calc(100% + 6px));
+        }
+
+        &.medium:after {
+            transform: translateX(calc(100% + 8px));
+        }
+
+        &.large:after {
+            transform: translateX(calc(100% + 10px));
+        }
+    }
+}
+
+.mio-switch-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background: v.$gray-300;
+    border-radius: 30px;
+    text-indent: 70px;
+    color: v.$slate-900;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    cursor: pointer;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 22px;
+        height: 22px;
+        background: #ffffff;
+        border-radius: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    &.small {
+        width: 50px;
+        height: 26px;
+
+        &::after {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &.medium {
+        width: 60px;
+        height: 30px;
+
+        &::after {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    &.large {
+        width: 70px;
+        height: 34px;
+
+        &::after {
+            width: 26px;
+            height: 26px;
+        }
+    }
+}
