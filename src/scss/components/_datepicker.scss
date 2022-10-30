@@ -127,8 +127,6 @@
                 width: 100%;
                 height: 100%;
 
-                padding: 2px;
-
                 &::after {
                     content: "";
                     display: block;
@@ -138,62 +136,68 @@
 
             button {
                 display: flex;
-                justify-content: center;
-                align-items: center;
                 width: 100%;
                 height: 100%;
                 padding: 2px;
-                border-radius: 50%;
-                font-size: 16px;
-                font-weight: 300;
 
-                &.current {
+                &.current .number {
                     color: v.$gray-900;
                 }
 
-                &:hover.current {
+                &:hover.current .number {
                     background-color: v.$indigo-100;
                 }
 
-                &:active.current {
+                &:active.current .number {
                     background-color: v.$indigo-200;
                 }
 
-                &.today {
+                &.today .number {
                     border: 1px solid v.$indigo-300;
                 }
 
-                &.today.selected {
+                &.today.selected .number {
                     background-color: v.$indigo-100;
                 }
 
-                &.prev,
-                &.next {
+                &.prev .number,
+                &.next .number {
                     color: v.$gray-400;
                 }
 
-                &:hover.prev,
-                &:hover.next {
+                &:hover.prev .number,
+                &:hover.next .number {
                     background-color: v.$indigo-50;
                 }
 
-                &:active.prev,
-                &:active.next {
+                &:active.prev .number,
+                &:active.next .number {
                     background-color: v.$indigo-100;
                 }
 
-                &.selected:not(.today) {
+                &.selected:not(.today) .number {
                     background-color: v.$indigo-700;
                     color: v.$white;
                 }
 
-                &:hover.selected:not(.today) {
+                &:hover.selected:not(.today) .number {
                     background-color: v.$indigo-600;
                 }
 
-                &:active.selected:not(.today) {
+                &:active.selected:not(.today) .number {
                     background-color: v.$indigo-700;
                 }
+            }
+
+            .number {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                font-size: 16px;
+                border-radius: 50%;
+                font-weight: 300;
             }
         }
     }

@@ -116,9 +116,13 @@ class Daypicker {
             if (date.isToday) button.classList.add("today");
             if (date.isSelected) button.classList.add("selected");
             if (date.isNext) button.classList.add("next");
-            button.textContent = date.date.getDate();
             button.addEventListener("click", () => this.onSelectDate(date.date));
             day.appendChild(button);
+
+            const number = document.createElement("div");
+            number.classList.add("number");
+            number.textContent = date.date.getDate();
+            button.appendChild(number);
         });
 
         return days;
