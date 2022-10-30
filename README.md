@@ -2,7 +2,7 @@
 Responsive vanilla JavaScript datepicker
 
 
-Demo: 
+Demo: https://bright-sawine-ee9de0.netlify.app/
 
 
 ```
