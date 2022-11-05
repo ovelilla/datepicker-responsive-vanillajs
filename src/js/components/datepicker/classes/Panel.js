@@ -62,7 +62,15 @@ class Panel {
             return;
         }
 
-        this.datepicker.firstChild.style.top = `${rect.top + input.offsetHeight + 2}px`;
+        this.observer = new MutationObserver(() => {
+            if (rect.top + this.datepicker.firstChild.offsetHeight + input.offsetHeight > window.innerHeight) {
+                this.datepicker.firstChild.style.top = `${rect.top - this.datepicker.firstChild.offsetHeight - 4}px`;
+            } else {
+                this.datepicker.firstChild.style.top = `${rect.top + input.offsetHeight + 2}px`;
+            }
+        });
+        this.observer.observe(this.datepicker.firstChild, { attributes: true });
+
         this.datepicker.firstChild.style.left = `${rect.left}px`;
         this.datepicker.firstChild.style.width = `${rect.width}px`;
     }
@@ -91,6 +99,7 @@ class Panel {
     }
 
     destroy() {
+        this.observer.disconnect();
         window.removeEventListener("resize", this.resize);
         this.datepicker.remove();
     }
