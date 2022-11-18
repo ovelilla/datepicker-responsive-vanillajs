@@ -93,6 +93,10 @@ class InputDate extends Form {
     }
 
     formatValue() {
+        if (!this.input.value) {
+            return "";
+        }
+        
         let date = new Date(this.input.value);
 
         if (!dates.isValidDate(date)) {

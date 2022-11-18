@@ -14,7 +14,7 @@ class Form {
     createField() {
         const field = document.createElement("div");
         field.classList.add("mio-field");
-        if (this.input.value !== "") {
+        if (this.input.value) {
             field.classList.add("active");
         }
         if (this.error) {

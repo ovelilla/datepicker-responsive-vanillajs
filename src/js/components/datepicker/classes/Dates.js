@@ -23,6 +23,10 @@ class Dates {
         this.currentDate = dates.dateFromDatetime(new Date());
         this.selectedDate = dates.dateFromDatetime(new Date());
 
+        if (!this.value) {
+            return;
+        }
+
         const valueDate = new Date(this.value);
 
         if (dates.isValidDate(valueDate)) {
