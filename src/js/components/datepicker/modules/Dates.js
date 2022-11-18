@@ -50,6 +50,12 @@ export const dates = (() => {
         return date.toLocaleDateString("es-ES", { year: "numeric", month: "long", day: "numeric" });
     };
 
+    const formatToISO = (date) => {
+        const offset = new Date().getTimezoneOffset();
+        const dateUTC = new Date(date.getTime() - offset * 60 * 1000);
+        return dateUTC.toISOString().split("T")[0];
+    };
+
     return {
         isValidDate,
         getDaysOfMonth,
@@ -61,5 +67,6 @@ export const dates = (() => {
         dateFromDatetime,
         formatDateShort,
         formatDateLong,
+        formatToISO,
     };
 })();
